@@ -5,12 +5,15 @@ import java.util.Set;
 
 public class RemoveDuplicates {
 	public static int soltion(int[] nums) {
-		Set<Integer> myset = new HashSet<>();
-		int count=0;
-		for (int i = 0; i < nums.length; i++) {
-			myset.add(nums[i]);
+		int i=0;
+		int j=1+1;
+		for ( j=i+1 ; j < nums.length; j++) {
+			if(nums[i] != nums[j]) {
+				i++;
+				nums[i] = nums[j];
+			}
 			
 		}
-		return myset.toArray().length;
+		return i+1;
 	}
 }
